@@ -2,6 +2,10 @@
   "name": "nlw-journey-node",
   "version": "1.0.0",
   "main": "src/server.ts",
+  "author": {
+    "name": "Antonio Mauricio de Almeida Neto",
+    "email": "antonioimportant@gmail.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^9.6.0",
