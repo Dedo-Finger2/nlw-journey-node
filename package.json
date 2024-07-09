@@ -31,7 +31,9 @@
     "start": "node --env-file .env --watch dist/server.js",
     "build": "tsup src/**",
     "prepare": "husky",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:staged": "jest --passWithNoTests"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
