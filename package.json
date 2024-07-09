@@ -6,6 +6,7 @@
   "devDependencies": {
     "@eslint/js": "^9.6.0",
     "@types/node": "^20.14.10",
+    "@types/nodemailer": "^6.4.15",
     "eslint": "9.x",
     "globals": "^15.8.0",
     "husky": "^9.0.11",
@@ -21,6 +22,10 @@
   },
   "dependencies": {
     "@prisma/client": "5.16.1",
-    "fastify": "^4.28.1"
+    "dayjs": "^1.11.11",
+    "fastify": "^4.28.1",
+    "fastify-type-provider-zod": "^2.0.0",
+    "nodemailer": "^6.9.14",
+    "zod": "^3.23.8"
   }
 }
