@@ -54,5 +54,5 @@ MIT.
 
 * **Repositório do Projeto:** [https://github.com/Dedo-Finger2/nlw-journey-node](https://github.com/Dedo-Finger2/nlw-journey-node)
 * **Meu Linkedin:** [https://www.linkedin.com/in/antonio-mauricio-4645832b3/](https://www.linkedin.com/in/antonio-mauricio-4645832b3/)
-* **Meu Instagram:** [https://www.instagram.com/antonioalmeida2003/]https://www.instagram.com/antonioalmeida2003/()
+* **Meu Instagram:** [https://www.instagram.com/antonioalmeida2003/](https://www.instagram.com/antonioalmeida2003/)
 * **Canal da Rocketseat no YouTube:** [https://m.youtube.com/@rocketseat](https://m.youtube.com/@rocketseat)
