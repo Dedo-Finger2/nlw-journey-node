@@ -1,6 +1,7 @@
 {
   ".ts": [
     "eslint 'src/**/*.ts' --fix",
-    "prettier 'src/**/*.ts' --write"
+    "prettier 'src/**/*.ts' --write",
+    "yarn test:staged"
   ]
 }
