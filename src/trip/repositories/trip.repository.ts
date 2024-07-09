@@ -3,6 +3,9 @@ export type TripRepositorySaveMethodRequest = {
   startsAt: Date;
   endsAt: Date;
   isConfirmed: boolean;
+  ownerName: string;
+  ownerEmail: string;
+  participantsEmails: Array<string>;
 };
 
 export type TripRepositorySaveMethodResponse = {
