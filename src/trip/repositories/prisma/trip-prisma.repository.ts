@@ -7,20 +7,17 @@ import { prisma } from "../../../lib/prisma";
 
 export class TripPrismaRepository implements TripRepository {
   async save({
-    destination,
-    startsAt,
-    endsAt,
-    isConfirmed,
+    tripEntity,
     ownerName,
     ownerEmail,
     participantsEmails
   }: TripRepositorySaveMethodRequest): Promise<TripRepositorySaveMethodResponse> {
     const createdTrip = await prisma.trip.create({
       data: {
-        destination,
-        starts_at: startsAt,
-        ends_at: endsAt,
-        is_confirmed: isConfirmed,
+        destination: tripEntity.destination,
+        starts_at: tripEntity.startsAt,
+        ends_at: tripEntity.endsAt,
+        is_confirmed: tripEntity.isConfirmed,
         participants: {
           createMany: {
             data: [

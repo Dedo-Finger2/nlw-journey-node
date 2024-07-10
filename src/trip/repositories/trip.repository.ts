@@ -1,8 +1,7 @@
+import { TripEntity } from "../domain/entities/trip.entity";
+
 export type TripRepositorySaveMethodRequest = {
-  destination: string;
-  startsAt: Date;
-  endsAt: Date;
-  isConfirmed: boolean;
+  tripEntity: TripEntity;
   ownerName: string;
   ownerEmail: string;
   participantsEmails: Array<string>;
