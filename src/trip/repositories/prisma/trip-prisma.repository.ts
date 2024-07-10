@@ -10,7 +10,7 @@ export class TripPrismaRepository implements TripRepository {
     tripEntity,
     ownerName,
     ownerEmail,
-    participantsEmails
+    emailsToInvite
   }: TripRepositorySaveMethodRequest): Promise<TripRepositorySaveMethodResponse> {
     const createdTrip = await prisma.trip.create({
       data: {
@@ -27,7 +27,7 @@ export class TripPrismaRepository implements TripRepository {
                 is_confirmed: true,
                 is_owner: true
               },
-              ...participantsEmails.map((email) => {
+              ...emailsToInvite.map((email) => {
                 return { email };
               })
             ]

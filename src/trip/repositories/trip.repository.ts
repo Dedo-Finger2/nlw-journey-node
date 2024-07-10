@@ -4,7 +4,7 @@ export type TripRepositorySaveMethodRequest = {
   tripEntity: TripEntity;
   ownerName: string;
   ownerEmail: string;
-  participantsEmails: Array<string>;
+  emailsToInvite: Array<string>;
 };
 
 export type TripRepositorySaveMethodResponse = {
