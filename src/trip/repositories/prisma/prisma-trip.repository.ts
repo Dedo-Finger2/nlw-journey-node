@@ -5,7 +5,7 @@ import {
 } from "../trip.repository";
 import { prisma } from "../../../lib/prisma";
 
-export class TripPrismaRepository implements TripRepository {
+export class PrismaTripRepository implements TripRepository {
   async save({
     tripEntity,
     ownerName,

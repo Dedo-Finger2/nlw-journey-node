@@ -1,10 +1,10 @@
 import { EtherealMailService } from "../../services/mail/ethereal-mail.service";
 import { CreateTripService } from "../app-services/create-trip.service";
 import { CreateTripController } from "../http/controllers/create-trip.controller";
-import { TripPrismaRepository } from "../repositories/prisma/prisma-trip.repository";
+import { PrismaTripRepository } from "../repositories/prisma/prisma-trip.repository";
 
 export async function buildCreateTripController() {
-  const tripRepository = new TripPrismaRepository();
+  const tripRepository = new PrismaTripRepository();
 
   const mailService = await EtherealMailService.build();
 
