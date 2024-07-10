@@ -1,12 +1,14 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import { HttpResponse } from "./http.type";
 
-export type ControllerRequest = FastifyRequest;
+export type ControllerRequest<ControllerRequestBody> = FastifyRequest<{
+  Body: ControllerRequestBody;
+}>;
 export type ControllerReply = FastifyReply;
 
-export interface Controller<ResponseBody> {
+export interface Controller<RequestBody, ResponseBody> {
   handle(
-    request: ControllerRequest,
+    request: ControllerRequest<RequestBody>,
     reply: ControllerReply
   ): Promise<HttpResponse<ResponseBody>>;
 }
