@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
   "destination": "Lugar de Teste",
-  "starts_at": "2024-07-10 18:32:00",
+  "starts_at": "2024-07-12 18:32:00",
   "ends_at": "2024-08-10 19:32:00",
   "owner_name": "Greg",
   "owner_email": "antonioimportant@gmail.com",
