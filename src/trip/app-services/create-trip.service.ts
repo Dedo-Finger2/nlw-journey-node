@@ -8,7 +8,7 @@ import { TripRepository } from "../repositories/trip.repository";
 dayjs.extend(localizedFormat);
 dayjs.locale("pt-br");
 
-type CreateTripServiceRequest = {
+export type CreateTripServiceRequest = {
   destination: string;
   startsAt: Date;
   endsAt: Date;
@@ -18,7 +18,7 @@ type CreateTripServiceRequest = {
   emailsToInvite: Array<string>;
 };
 
-type CreateTripServiceResponse = {
+export type CreateTripServiceResponse = {
   tripId: string;
 };
 
