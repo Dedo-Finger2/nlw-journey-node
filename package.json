@@ -34,10 +34,10 @@
     "start": "node --env-file .env --watch dist/server.js",
     "build": "tsup src/**",
     "prepare": "husky",
-    "test": "jest --testPathIgnorePatterns **/e2e/**",
-    "test:e2e": "jest --testPathPattern **/e2e/**",
-    "test:watch": "jest --watch --testPathIgnorePatterns **/e2e/**",
-    "test:staged": "jest --passWithNoTests --testPathIgnorePatterns **/e2e/**"
+    "test": "jest --testPathIgnorePatterns src/**/e2e/*.e2e.spec.ts",
+    "test:e2e": "jest --testPathPattern src/**/e2e/*.e2e.spec.ts",
+    "test:watch": "jest --watch --testPathIgnorePatterns src/**/e2e/*.e2e.spec.ts",
+    "test:staged": "jest --passWithNoTests --testPathIgnorePatterns src/**/e2e/*.e2e.spec.ts"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
