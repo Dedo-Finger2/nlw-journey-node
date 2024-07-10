@@ -7,7 +7,7 @@ export class EtherealMailService implements MailService {
     private readonly account: TestAccount
   ) {}
 
-  private static async build() {
+  static async build() {
     const account = await nodemailer.createTestAccount();
     const transporter = nodemailer.createTransport({
       host: "smtp.ethereal.email",
@@ -23,9 +23,7 @@ export class EtherealMailService implements MailService {
   }
 
   async sendMail(message: MailMessage): Promise<void> {
-    const mailService = await EtherealMailService.build();
-
-    await mailService.sendMail({
+    await this.transporter.sendMail({
       to: message.to,
       from: message.from,
       subject: message.subject,
