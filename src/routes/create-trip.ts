@@ -6,6 +6,7 @@ import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 import { prisma } from "../lib/prisma";
 import { getMailClient } from "../lib/mail";
+import { InvalidResourceError } from "../errors/invalid-resource.error";
 
 dayjs.extend(localizedFormat);
 dayjs.locale("pt-br");
@@ -37,11 +38,15 @@ export async function createTrip(app: FastifyInstance) {
       } = request.body;
 
       if (dayjs(starts_at).isBefore(new Date())) {
-        throw new Error("Invalid trip start date");
+        throw new InvalidResourceError(
+          "Invalid trip starts_at. Cannot be before today's date."
+        );
       }
 
       if (dayjs(ends_at).isBefore(starts_at)) {
-        throw new Error("Invalid trip end date");
+        throw new InvalidResourceError(
+          "Invalid trip ends_at. Cannot be before starts_at date."
+        );
       }
 
       const trip = await prisma.trip.create({
