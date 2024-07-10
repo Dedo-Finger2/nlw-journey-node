@@ -14,6 +14,7 @@
     "@types/jest": "^29.5.12",
     "@types/node": "^20.14.10",
     "@types/nodemailer": "^6.4.15",
+    "@types/supertest": "^6.0.2",
     "eslint": "9.x",
     "globals": "^15.8.0",
     "husky": "^9.0.11",
