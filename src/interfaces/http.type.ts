@@ -14,3 +14,8 @@ export const baseResponseSchema = z.object({
 });
 
 export type BaseHttpResponse = z.infer<typeof baseResponseSchema>;
+
+export const httpResponseSchema = <T extends z.ZodTypeAny>(bodySchema: T) =>
+  baseResponseSchema.extend({
+    body: bodySchema
+  });
