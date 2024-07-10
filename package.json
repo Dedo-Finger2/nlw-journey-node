@@ -32,9 +32,10 @@
     "start": "node --env-file .env --watch dist/server.js",
     "build": "tsup src/**",
     "prepare": "husky",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:staged": "jest --passWithNoTests"
+    "test": "jest --testPathIgnorePatterns **/e2e/**",
+    "test:e2e": "jest --testPathPattern **/e2e/**",
+    "test:watch": "jest --watch --testPathIgnorePatterns **/e2e/**",
+    "test:staged": "jest --passWithNoTests --testPathIgnorePatterns **/e2e/**"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
