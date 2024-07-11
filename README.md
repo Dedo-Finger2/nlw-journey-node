@@ -1,52 +1,100 @@
+<p align="center">
+  <img style="width: 250px" src="https://raw.githubusercontent.com/Dedo-Finger2/nlw-journey-node/master/pulbic/images/nlw-journey-logo.png" />
+</p>
+
 # Plann.er - NLW Journey
 
-**Organização de Viagens com Facilidade**
+![project-banner](https://raw.githubusercontent.com/Dedo-Finger2/nlw-journey-node/master/pulbic/images/nlw-journey-banner.png)
 
-O Plann.er é uma API desenvolvido durante o evento NLW Journey, um evento 100% prático da Rocketseat. Mestrado no ano de 2024.
+<h3 align="center">💫 Organização de Viagens com Facilidade 💫</h3>
 
-Com o Plann.er os usuários encontram uma maneira prática e simples de organizar e gerenciar suas viagens, facilitando o gerenciamento das viagens e livrando os usuários de estresse.
+---
 
-## Funcionalidades da API
+<p align="center">
+    <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/fastify-%23000000.svg?style=for-the-badge&logo=fastify&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white"/>
+</p>
+
+[![Minimum node.js version](https://badgen.net/npm/node/express)](https://npmjs.com/package/express)
+[![GitHub license](https://badgen.net/github/license/Dedo-Finger2/nlw-journey-node)](https://github.com/Dedo-Finger2/nlw-journey-node/blob/master/LICENSE)
+[![GitHub latest commit](https://badgen.net/github/last-commit/Dedo-Finger2/nlw-journey-node)](https://github.com/Dedo-Finger2/nlw-journey-node/commit/)
+[![GitHub forks](https://badgen.net/github/forks/Dedo-Finger2/nlw-journey-node/)](https://github.com/Dedo-Finger2/nlw-journey-node/network/)
+[![Github all releases](https://img.shields.io/github/downloads/Dedo-Finger2/nlw-journey-node/total.svg)](https://github.com/Dedo-Finger2/nlw-journey-node/releases/)
+
+O Plann.er é uma API desenvolvida durante o evento NLW Journey, um evento 100% prático da Rocketseat em 2024.
+
+Com o Plann.er, os usuários encontram uma maneira prática e simples de organizar e gerenciar suas viagens, sejam elas solo ou em grupo! Tornando o gerenciamento das viagens fácil e livrando os usuários de estresse.
+
+---
+
+### 📋 Funcionalidades da API
 
 - **Crie roteiros detalhados:** Organize as etapas da sua viagem, incluindo destinos, atividades, datas e horários.
 - **Gerencie links importantes:** Armazene links para reservas, voos, hotéis, restaurantes e outras informações relevantes em um só lugar.
 - **Compartilhe com amigos e/ou familiares:** Compartilhe seu roteiro e links com outros membros da sua viagem usando apenas o endereço de email.
 
-## Benefícios do uso da API
+---
+
+### 🌟 Benefícios do Uso da API
 
 - **Planeje viagens perfeitas:** Organize seus roteiros com antecedência para aproveitar ao máximo o seu tempo e evitar imprevistos.
 - **Centralize informações importantes:** Tenha todas as informações da sua viagem em um só lugar, acessíveis a qualquer momento e em qualquer dispositivo.
 - **Colabore com seus participantes:** Planeje e organize a viagem em conjunto com seus amigos e familiares, compartilhando responsabilidades e informações.
 - **Tenha uma viagem tranquila:** Minimize o estresse e maximize a diversão com um planejamento completo e organizado.
 
-## Tecnologias Utilizadas
+---
 
-- Fastify
-- Zod
-- PrismaORM
-- Nodemailer
-- ESLint
-- Prettier
-- Lint-Staged
-- Husky
-- Jest
+### 🛠️ Tecnologias Utilizadas
 
-## Requisitos para Uso
+| Biblioteca        | Motivação do Uso                                                                 |
+|-------------------|----------------------------------------------------------------------------------|
+| Fastify           | Criação do servidor web.                                                         |
+| Zod               | Validação de dados para TypeScript.                                              |
+| PrismaORM         | ORM para trabalhar com bancos de dados em ambientes TypeScript de forma nativa.  |
+| Nodemailer        | Envio de emails.                                                                 |
+| ESLint            | Formatação e padronização do código.                                             |
+| Prettier          | Embelezamento e padronização do código.                                          |
+| Lint-Staged       | Aplicação de scripts específicos em apenas arquivos "staged".                    |
+| Husky             | Automação de tarefas e execução de scripts em situações específicas (antes de um commit, por exemplo). |
+| Jest & Supertest  | Testes end-to-end.                                                               |
+
+---
+
+### 🚀 Requisitos para Uso
 
 1. NodeJS instalado;
-2. Algum gerenciador de pacotes instalado (npm, yarn ou pnpm);
+2. Gerenciador de pacotes instalado (npm, yarn ou pnpm);
 
-## Como Usar
+---
 
-1. Clone o repositório do projeto: `git clone https://github.com/Dedo-Finger2/nlw-journey-node.git`
-2. Acesse a pasta do projeto e instale as dependências: `npm install`
-3. Inicie o servidor de desenvolvimento: `npm start:dev`
+### 📦 Como Usar
 
-## Arquitetura
+> Clone o repositório do projeto
+```bash
+git clone https://github.com/Dedo-Finger2/nlw-journey-node.git
+```
 
-### Requisitos
+> Acesse a pasta do projeto e instale as dependências
+```bash
+cd nlw-journey-node/
+yarn install
+```
 
-#### RFs
+> Inicie o servidor de desenvolvimento
+```bash
+yarn start:dev
+```
+> Execute os testes end-to-end
+```
+yarn test:e2e
+```
+
+---
+
+### 🏗️ Arquitetura
+
+### Requisitos Funcionais (RFs)
 
 - [x] O usuário deve poder criar uma nova viagem
 - [x] O usuário deve poder criar uma atividade para uma viagem
@@ -61,7 +109,7 @@ Com o Plann.er os usuários encontram uma maneira prática e simples de organiza
 - [x] O usuário deve poder visualizar detalhes de um participante específico
 - [x] O usuário deve poder confirmar sua viagem
 
-#### RNs
+### Regras de Negócio (RNs)
 
 - [x] Não deve ser possível criar uma viagem com dados inválidos
 - [x] Não deve ser possível confirmar presença em uma viagem que não exista
@@ -70,25 +118,30 @@ Com o Plann.er os usuários encontram uma maneira prática e simples de organiza
 - [x] Não deve ser possível confirmar uma viagem que não exista
 - [x] Ao criar uma viagem o usuário deve poder fornecer um conjunto de emails para adicionar como participantes na criação da viagem
 
-#### RNFs
+### Requisitos Não Funcionais (RNFs)
 
 - [x] O convite de participantes deve ser feito através de envio de e-mail
-- [] A plataforma deve usar banco de dados PostgreSQL
-- [] Deve haver testes end to end para todas as rotas e suas ramificações / possíveis caminhos
-- [] Deve ser usado um banco de dados dedicado a testes usando SQLite
-- [] Antes de executar os testes uma factory deve ser acionada para adicionar dados de teste iniciais
+- [ ] A plataforma deve usar banco de dados PostgreSQL
+- [ ] Deve haver testes end to end para todas as rotas e suas ramificações / possíveis caminhos
+- [ ] Deve ser usado um banco de dados dedicado a testes usando SQLite
+- [ ] Antes de executar os testes uma factory deve ser acionada para adicionar dados de teste iniciais
 
-## Implementações futuras
+---
 
-- [] Front-End com Vue.JS
-- [] Refatoração seguindo princípios de SOLID e Clean Arch.
-- [] Deploy completo da API
-- [] Deploy completo do Front-End
+### 🔮 Implementações Futuras
 
-## Links Úteis
+- [ ] Front-End com Vue.JS
+- [ ] Sistema de autenticação baseado em JWT
+- [ ] Refatoração seguindo princípios de SOLID e Clean Arch
+- [ ] Deploy completo da API
+- [ ] Deploy completo do Front-End
+- [ ] Criar um script de Build
+
+---
+
+### 🔗 Links Úteis
 
 - **Repositório do Projeto:** [https://github.com/Dedo-Finger2/nlw-journey-node](https://github.com/Dedo-Finger2/nlw-journey-node)
 - **Meu LinkedIn:** [https://www.linkedin.com/in/antonio-mauricio-4645832b3/](https://www.linkedin.com/in/antonio-mauricio-4645832b3/)
 - **Meu Instagram:** [https://www.instagram.com/antonioalmeida2003/](https://www.instagram.com/antonioalmeida2003/)
-
 - **Canal da Rocketseat no YouTube:** [https://m.youtube.com/@rocketseat](https://m.youtube.com/@rocketseat)
