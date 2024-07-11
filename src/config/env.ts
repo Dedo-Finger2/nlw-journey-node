@@ -6,6 +6,9 @@ const envSchema = z.object({
   SERVER_PORT: z.coerce.number().int().positive().default(3333),
   API_BASE_URL: z.string().url(),
   WEB_BASE_URL: z.string().url(),
+  TEST_TRIP_ID: z.string().uuid(),
+  TEST_TRIP_OWNER_ID: z.string().uuid(),
+  TEST_TRIP_PARTICIPANT_ID: z.string().uuid(),
   ENVIRONMENT: z.enum(["dev", "test", "production"]).default("dev")
 });
 

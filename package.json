@@ -34,7 +34,8 @@
     "start": "node --watch --env-file .env dist/server.js",
     "build": "tsup src/**",
     "prepare": "husky",
-    "test:e2e": "jest"
+    "test:e2e": "jest",
+    "seed": "tsx --env-file .env src/lib/seed.ts"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
