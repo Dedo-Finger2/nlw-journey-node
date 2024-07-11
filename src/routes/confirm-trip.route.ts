@@ -43,7 +43,7 @@ export async function confirmTrip(app: FastifyInstance) {
       }
 
       if (trip.is_confirmed) {
-        return reply.redirect(`http://localhost:3000/trips/${tripId}`);
+        return reply.status(301).redirect(`http://localhost:3000/trips/${tripId}`);
       }
 
       await prisma.trip.update({
@@ -93,7 +93,7 @@ export async function confirmTrip(app: FastifyInstance) {
         })
       ]);
 
-      return reply.redirect(`http://localhost:3000/trips/${tripId}`);
+      return reply.status(301).redirect(`http://localhost:3000/trips/${tripId}`);
     }
   );
 }
