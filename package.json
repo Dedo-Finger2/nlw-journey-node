@@ -35,9 +35,9 @@
     "build": "tsup src --format esm",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
-    "prepare": "husky",
-    "test:e2e": "jest",
-    "seed": "tsx --env-file .env src/lib/seed.ts"
+    "db:seed": "tsx --env-file .env src/lib/seed.ts",
+    "test:e2e": "jest --testPathPattern src/**",
+    "prepare": "husky"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
