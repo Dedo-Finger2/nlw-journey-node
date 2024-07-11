@@ -23,6 +23,7 @@
     "prettier": "^3.3.2",
     "prisma": "^5.16.1",
     "supertest": "^7.0.0",
+    "ts-node": "^10.9.2",
     "tsup": "^8.1.0",
     "tsx": "^4.16.2",
     "typescript": "^5.5.3",
