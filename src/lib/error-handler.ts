@@ -9,11 +9,14 @@ export const errorHandler: FastifyErrorHandler = (error, request, reply) => {
   if (error instanceof ZodError) {
     return reply.status(400).send({
       message: "Invalid input.",
-      errors: error.flatten().fieldErrors
+      errors: error.flatten().fieldErrors,
+      statusCode: 400
     });
   }
 
-  return reply
-    .status(error?.statusCode ?? 500)
-    .send({ message: error?.message ?? "Internal Server Error." });
+  return reply.status(error?.statusCode ?? 500).send({
+    error: error?.name ?? "Error",
+    message: error?.message ?? "Internal Server Error.",
+    statusCode: error?.statusCode ?? 500
+  });
 };
