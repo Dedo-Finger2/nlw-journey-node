@@ -85,6 +85,10 @@ yarn install
 ```bash
 yarn start:dev
 ```
+> Execute os testes end-to-end
+```
+yarn test:e2e
+```
 
 ---
 
@@ -131,6 +135,7 @@ yarn start:dev
 - [ ] Refatoração seguindo princípios de SOLID e Clean Arch
 - [ ] Deploy completo da API
 - [ ] Deploy completo do Front-End
+- [ ] Criar um script de Build
 
 ---
 
