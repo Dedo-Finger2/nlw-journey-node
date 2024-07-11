@@ -14,7 +14,7 @@ describe("Confirm Participant On Trip", () => {
     await server.close();
   });
 
-  it.only("should be able to create a new trip and return status code of 201", async () => {
+  it("should be able to create a new trip and return status code of 201", async () => {
     const response = await request(server.server).get(
       "/participants/04dfb121-723e-4300-bf18-48c630736647/confirm"
     );

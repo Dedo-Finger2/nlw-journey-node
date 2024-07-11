@@ -7,7 +7,7 @@ let server: FastifyInstance;
 describe("Get Participant Route", () => {
   beforeAll(async () => {
     server = app;
-    await server.listen({ port: 3340 });
+    await server.listen({ port: 3341 });
   });
 
   afterAll(async () => {

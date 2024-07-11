@@ -7,7 +7,7 @@ let server: FastifyInstance;
 describe("Get Trip Links Route", () => {
   beforeAll(async () => {
     server = app;
-    await server.listen({ port: 3338 });
+    await server.listen({ port: 3340 });
   });
 
   afterAll(async () => {

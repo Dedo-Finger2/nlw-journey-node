@@ -44,8 +44,12 @@ describe("Create Trip Route", () => {
         emails_to_invite: ["teste@gmail.com", "teste2@gmail.com", "teste3@gmail.com"]
       });
 
-    // TODO: Adapt to 400
-    expect(response.status).toBe(500);
+    expect(response.status).toBe(400);
+    expect(response.body).toEqual({
+      message: "Invalid trip starts_at. Cannot be before today's date.",
+      statusCode: 400,
+      error: "InvalidResourceError"
+    });
   });
 
   it("should return status code 400 when passing invalid ends_at", async () => {
@@ -60,7 +64,11 @@ describe("Create Trip Route", () => {
         emails_to_invite: ["teste@gmail.com", "teste2@gmail.com", "teste3@gmail.com"]
       });
 
-    // TODO: Adapt to 400
-    expect(response.status).toBe(500);
+    expect(response.status).toBe(400);
+    expect(response.body).toEqual({
+      message: "Invalid trip ends_at. Cannot be before starts_at date.",
+      statusCode: 400,
+      error: "InvalidResourceError"
+    });
   });
 });
