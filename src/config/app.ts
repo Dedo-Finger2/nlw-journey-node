@@ -13,6 +13,7 @@ import { createInvite } from "../routes/create-invite.route";
 import { updateTrip } from "../routes/update-trip.route";
 import { getTripDetails } from "../routes/get-trip-details.route";
 import { getTripParticipant } from "../routes/get-participant.route";
+import { errorHandler } from "../lib/error-handler";
 
 const app = fastify();
 
@@ -22,6 +23,8 @@ app.register(fastifyCors, {
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
+
+app.setErrorHandler(errorHandler);
 
 app.register(createTrip);
 app.register(confirmTrip);
