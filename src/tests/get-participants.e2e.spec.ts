@@ -40,7 +40,7 @@ describe("Get Trip Participants Route", () => {
 
     expect(response.status).toBe(404);
     expect(response.body).toEqual({
-      error: "ResourceNotFoundError",
+      errors: ["ResourceNotFoundError"],
       message: "Trip not found.",
       statusCode: 404
     });

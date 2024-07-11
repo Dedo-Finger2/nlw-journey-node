@@ -27,7 +27,7 @@ export async function createActivity(app: FastifyInstance) {
           }),
           400: z.object({
             message: z.string(),
-            errors: z.record(z.string(), z.array(z.string())).optional(),
+            errors: z.array(z.string()).optional(),
             statusCode: z.number().positive().int()
           }),
           404: z.object({
@@ -58,6 +58,10 @@ export async function createActivity(app: FastifyInstance) {
       if (!trip) {
         throw new ResourceNotFoundError("Trip not found.");
       }
+
+      console.log("occurs_at:", occurs_at);
+      console.log("trip.starts_at:", trip.starts_at);
+      console.log("trip.ends_at:", trip.ends_at);
 
       const invalidActivityDate =
         dayjs(occurs_at).isBefore(dayjs(trip.starts_at)) ||

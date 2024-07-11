@@ -38,7 +38,7 @@ describe("Get Participant Route", () => {
 
     expect(response.status).toBe(404);
     expect(response.body).toEqual({
-      error: "ResourceNotFoundError",
+      errors: ["ResourceNotFoundError"],
       message: "Participant not found.",
       statusCode: 404
     });

@@ -49,7 +49,7 @@ describe("Create Trip Route", () => {
     expect(response.body).toEqual({
       message: "Invalid trip starts_at. Cannot be before today's date.",
       statusCode: 400,
-      error: "InvalidResourceError"
+      errors: ["InvalidResourceError"]
     });
   });
 
@@ -69,7 +69,7 @@ describe("Create Trip Route", () => {
     expect(response.body).toEqual({
       message: "Invalid trip ends_at. Cannot be before starts_at date.",
       statusCode: 400,
-      error: "InvalidResourceError"
+      errors: ["InvalidResourceError"]
     });
   });
 });

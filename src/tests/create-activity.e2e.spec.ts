@@ -20,7 +20,7 @@ describe("Create Activity Route", () => {
       .post(`/trips/${env.TEST_TRIP_ID}/activities`)
       .send({
         title: "Lugar de Teste",
-        occurs_at: "5024-01-15 18:32:00"
+        occurs_at: "5024-01-11 18:32:00"
       });
 
     expect(response.status).toBe(201);
@@ -41,7 +41,7 @@ describe("Create Activity Route", () => {
     expect(response.body).toEqual({
       message: "Invalid activity occurs_at",
       statusCode: 400,
-      error: "InvalidResourceError"
+      errors: ["InvalidResourceError"]
     });
   });
 
@@ -57,7 +57,7 @@ describe("Create Activity Route", () => {
     expect(response.body).toEqual({
       message: "Invalid activity occurs_at",
       statusCode: 400,
-      error: "InvalidResourceError"
+      errors: ["InvalidResourceError"]
     });
   });
 });

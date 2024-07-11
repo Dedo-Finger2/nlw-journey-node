@@ -29,14 +29,12 @@ export async function createTrip(app: FastifyInstance) {
           }),
           400: z.object({
             message: z.string(),
-            errors: z.record(z.string(), z.array(z.string())).optional(),
+            errors: z.array(z.string()).optional(),
             statusCode: z.number().positive().int()
           }),
           500: z.object({
             message: z.string(),
-            errors: z.object({
-              error: z.array(z.string())
-            }),
+            errors: z.array(z.string()),
             statusCode: z.number().positive().int()
           })
         }

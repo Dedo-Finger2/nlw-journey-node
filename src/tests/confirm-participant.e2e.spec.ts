@@ -24,7 +24,7 @@ describe("Confirm Participant On a Trip", () => {
     expect(response.body).toEqual({});
   });
 
-  it.only("should not be able to confirm a participant that does not exists", async () => {
+  it("should not be able to confirm a participant that does not exists", async () => {
     const response = await request(server.server).get(
       "/participants/80f580b6-297a-4279-90c3-528a87a80dce/confirm"
     );
