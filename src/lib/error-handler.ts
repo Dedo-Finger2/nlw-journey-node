@@ -17,8 +17,10 @@ export const errorHandler: FastifyErrorHandler = (error, request, reply) => {
   console.error(error);
 
   return reply.status(error?.statusCode ?? 500).send({
-    error: error?.name ?? "Error",
     message: error?.message ?? "Internal Server Error.",
+    errors: {
+      error: [`${error?.name ?? "Server Error"}`]
+    },
     statusCode: error?.statusCode ?? 500
   });
 };

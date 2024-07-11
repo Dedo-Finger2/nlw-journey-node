@@ -13,7 +13,25 @@ export async function confirmParticipantOnTrip(app: FastifyInstance) {
       schema: {
         params: z.object({
           participantId: z.string().uuid()
-        })
+        }),
+        response: {
+          301: z.object({}),
+          400: z.object({
+            message: z.string(),
+            errors: z.object({
+              error: z.array(z.string()).optional(),
+              participantId: z.array(z.string()).optional()
+            }),
+            statusCode: z.number().positive().int().default(400)
+          }),
+          500: z.object({
+            message: z.string(),
+            errors: z.object({
+              error: z.array(z.string())
+            }),
+            statusCode: z.number().positive().int().default(500)
+          })
+        }
       }
     },
     async (request, reply) => {
