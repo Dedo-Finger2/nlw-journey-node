@@ -13,3 +13,7 @@ Content-Type: application/json
     "teste3@gmail.com"
   ]
 }
+
+###
+
+GET http://localhost:3333/trips/7f02cef7-6c2a-4137-bf66-a00fc5e7fda0/confirm
