@@ -21,7 +21,12 @@ describe("Get Trip Activities Route", () => {
 
     expect(response.status).toBe(200);
     expect(response.body).toEqual({
-      activities: expect.any(Array)
+      activities: expect.arrayContaining([
+        {
+          date: expect.any(String),
+          activities: expect.any(Array)
+        }
+      ])
     });
   });
 });
