@@ -12,6 +12,8 @@ export async function updateTrip(app: FastifyInstance) {
     "/trips/:tripId",
     {
       schema: {
+        summary: "Updates a trip data.",
+        tags: ["Trips"],
         params: z.object({
           tripId: z.string().uuid()
         }),
@@ -19,7 +21,35 @@ export async function updateTrip(app: FastifyInstance) {
           destination: z.string().min(4),
           starts_at: z.coerce.date(),
           ends_at: z.coerce.date()
-        })
+        }),
+        response: {
+          200: z.object({
+            tripId: z.string().uuid()
+          }),
+          400: z.object({
+            message: z.string(),
+            errors: z.object({
+              error: z.array(z.string()).optional(),
+              tripId: z.array(z.string()).optional(),
+              destination: z.array(z.string()).optional(),
+              starts_at: z.array(z.string()).optional(),
+              ends_at: z.array(z.string()).optional()
+            }),
+            statusCode: z.number().positive().int()
+          }),
+          404: z.object({
+            errors: z.array(z.string()).optional(),
+            message: z.string(),
+            statusCode: z.number().positive().int()
+          }),
+          500: z.object({
+            message: z.string(),
+            errors: z.object({
+              error: z.array(z.string())
+            }),
+            statusCode: z.number().positive().int()
+          })
+        }
       }
     },
     async (request, reply) => {

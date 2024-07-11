@@ -10,9 +10,42 @@ export async function getTripDetails(app: FastifyInstance) {
     "/trips/:tripId",
     {
       schema: {
+        summary: "Returns a trip's details.",
+        tags: ["Trips"],
         params: z.object({
           tripId: z.string().uuid()
-        })
+        }),
+        response: {
+          200: z.object({
+            trip: z.object({
+              id: z.string(),
+              destination: z.string(),
+              starts_at: z.coerce.date(),
+              ends_at: z.coerce.date(),
+              is_confirmed: z.boolean()
+            })
+          }),
+          400: z.object({
+            message: z.string(),
+            errors: z.object({
+              error: z.array(z.string()).optional(),
+              tripId: z.array(z.string()).optional()
+            }),
+            statusCode: z.number().positive().int()
+          }),
+          404: z.object({
+            errors: z.array(z.string()).optional(),
+            message: z.string(),
+            statusCode: z.number().positive().int()
+          }),
+          500: z.object({
+            message: z.string(),
+            errors: z.object({
+              error: z.array(z.string())
+            }),
+            statusCode: z.number().positive().int()
+          })
+        }
       }
     },
     async (request, reply) => {

@@ -10,13 +10,42 @@ export async function createLink(app: FastifyInstance) {
     "/trips/:tripId/links",
     {
       schema: {
+        summary: "Create a new link for a trip.",
+        tags: ["Links"],
         params: z.object({
           tripId: z.string().uuid()
         }),
         body: z.object({
           title: z.string().min(4),
           url: z.string().url()
-        })
+        }),
+        response: {
+          201: z.object({
+            linkId: z.string().uuid()
+          }),
+          400: z.object({
+            message: z.string(),
+            errors: z.object({
+              error: z.array(z.string()).optional(),
+              tripId: z.array(z.string()).optional(),
+              title: z.array(z.string()).optional(),
+              url: z.array(z.string()).optional()
+            }),
+            statusCode: z.number().positive().int()
+          }),
+          404: z.object({
+            errors: z.array(z.string()).optional(),
+            message: z.string(),
+            statusCode: z.number().positive().int()
+          }),
+          500: z.object({
+            message: z.string(),
+            errors: z.object({
+              error: z.array(z.string())
+            }),
+            statusCode: z.number().positive().int()
+          })
+        }
       }
     },
     async (request, reply) => {

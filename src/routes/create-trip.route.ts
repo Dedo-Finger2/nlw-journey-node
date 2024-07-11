@@ -13,6 +13,8 @@ export async function createTrip(app: FastifyInstance) {
     "/trips",
     {
       schema: {
+        summary: "Create a new trip.",
+        tags: ["Trips"],
         body: z.object({
           destination: z.string().min(4),
           starts_at: z.coerce.date(),
@@ -20,7 +22,33 @@ export async function createTrip(app: FastifyInstance) {
           owner_name: z.string(),
           owner_email: z.string().email(),
           emails_to_invite: z.array(z.string().email())
-        })
+        }),
+        response: {
+          201: z.object({
+            tripId: z.string().uuid()
+          }),
+          400: z.object({
+            message: z.string(),
+            errors: z.object({
+              error: z.array(z.string()).optional(),
+              title: z.array(z.string()).optional(),
+              destination: z.array(z.string()).optional(),
+              starts_at: z.array(z.string()).optional(),
+              ends_at: z.array(z.string()).optional(),
+              owner_name: z.array(z.string()).optional(),
+              owner_email: z.array(z.string()).optional(),
+              emails_to_invite: z.array(z.string()).optional()
+            }),
+            statusCode: z.number().positive().int()
+          }),
+          500: z.object({
+            message: z.string(),
+            errors: z.object({
+              error: z.array(z.string())
+            }),
+            statusCode: z.number().positive().int()
+          })
+        }
       }
     },
     async (request, reply) => {
