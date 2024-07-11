@@ -5,6 +5,7 @@ import type { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { getMailClient } from "../lib/mail";
 import { InvalidResourceError } from "../errors/invalid-resource.error";
+import { env } from "../config/env";
 
 // eslint-disable-next-line require-await
 export async function createTrip(app: FastifyInstance) {
@@ -70,7 +71,7 @@ export async function createTrip(app: FastifyInstance) {
       const formattedStartDate = dayjs(starts_at).format("LL");
       const formattedEndDate = dayjs(ends_at).format("LL");
 
-      const confirmationRouteUrl = `http://localhost:3333/trips/${trip.id}/confirm`;
+      const confirmationRouteUrl = `${env.API_BASE_URL}/trips/${trip.id}/confirm`;
 
       const mail = await getMailClient();
 

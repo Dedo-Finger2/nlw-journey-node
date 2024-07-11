@@ -3,6 +3,7 @@ import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 import { ResourceNotFoundError } from "../errors/resource-not-found.error";
 import { prisma } from "../lib/prisma";
+import { env } from "../config/env";
 
 // eslint-disable-next-line require-await
 export async function confirmParticipantOnTrip(app: FastifyInstance) {
@@ -31,7 +32,7 @@ export async function confirmParticipantOnTrip(app: FastifyInstance) {
       if (participant.is_confirmed) {
         return reply
           .status(301)
-          .redirect(`http://localhost:3000/trips/${participant.trip_id}`);
+          .redirect(`${env.API_BASE_URL}/trips/${participant.trip_id}`);
       }
 
       await prisma.participant.update({
@@ -45,7 +46,7 @@ export async function confirmParticipantOnTrip(app: FastifyInstance) {
 
       return reply
         .status(301)
-        .redirect(`http://localhost:3000/trips/${participant.trip_id}`);
+        .redirect(`${env.WEB_BASE_URL}/trips/${participant.trip_id}`);
     }
   );
 }

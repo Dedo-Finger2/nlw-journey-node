@@ -5,6 +5,7 @@ import type { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { ResourceNotFoundError } from "../errors/resource-not-found.error";
 import { getMailClient } from "../lib/mail";
+import { env } from "../config/env";
 
 // eslint-disable-next-line require-await
 export async function createInvite(app: FastifyInstance) {
@@ -46,7 +47,7 @@ export async function createInvite(app: FastifyInstance) {
 
       const mail = await getMailClient();
 
-      const confirmationRouteUrl = `http://localhost:3333/participants/${participant.id}/confirm`;
+      const confirmationRouteUrl = `${env.API_BASE_URL}/participants/${participant.id}/confirm`;
 
       await mail.sendMail({
         from: {
