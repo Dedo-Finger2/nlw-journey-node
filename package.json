@@ -31,10 +31,10 @@
   },
   "scripts": {
     "start:dev": "tsx watch --env-file .env src/server.ts",
-    "start": "node --env-file .env --watch dist/server.js",
+    "start": "node --watch --env-file .env dist/server.js",
     "build": "tsup src/**",
     "prepare": "husky",
-    "test": "jest"
+    "test:e2e": "jest"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
