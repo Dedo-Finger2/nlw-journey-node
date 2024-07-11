@@ -1,8 +1,8 @@
+import { z } from "zod";
+import { prisma } from "../lib/prisma";
 import { dayjs } from "./../lib/dayjs";
 import type { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
-import { z } from "zod";
-import { prisma } from "../lib/prisma";
 import { getMailClient } from "../lib/mail";
 import { InvalidResourceError } from "../errors/invalid-resource.error";
 
