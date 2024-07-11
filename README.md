@@ -1,6 +1,26 @@
+<p align="center">
+  <img style="width: 250px" src="https://raw.githubusercontent.com/Dedo-Finger2/nlw-journey-node/master/pulbic/images/nlw-journey-logo.png" />
+</p>
+
 # Plann.er - NLW Journey
 
-**Organização de Viagens com Facilidade**
+![project-banner](https://raw.githubusercontent.com/Dedo-Finger2/nlw-journey-node/master/pulbic/images/nlw-journey-banner.png)
+
+<h3 align="center">💫 Organização de Viagens com Facilidade 💫</h3>
+
+---
+
+<p align="center">
+    <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/fastify-%23000000.svg?style=for-the-badge&logo=fastify&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white"/>
+</p>
+
+[![Minimum node.js version](https://badgen.net/npm/node/express)](https://npmjs.com/package/express)
+[![GitHub license](https://badgen.net/github/license/Dedo-Finger2/nlw-journey-node)](https://github.com/Dedo-Finger2/nlw-journey-node/blob/master/LICENSE)
+[![GitHub latest commit](https://badgen.net/github/last-commit/Dedo-Finger2/nlw-journey-node)](https://github.com/Dedo-Finger2/nlw-journey-node/commit/)
+[![GitHub forks](https://badgen.net/github/forks/Dedo-Finger2/nlw-journey-node/)](https://github.com/Dedo-Finger2/nlw-journey-node/network/)
+[![Github all releases](https://img.shields.io/github/downloads/Dedo-Finger2/nlw-journey-node/total.svg)](https://github.com/Dedo-Finger2/nlw-journey-node/releases/)
 
 O Plann.er é uma API desenvolvida durante o evento NLW Journey, um evento 100% prático da Rocketseat em 2024.
 
@@ -8,7 +28,7 @@ Com o Plann.er, os usuários encontram uma maneira prática e simples de organiz
 
 ---
 
-## 📋 Funcionalidades da API
+### 📋 Funcionalidades da API
 
 - **Crie roteiros detalhados:** Organize as etapas da sua viagem, incluindo destinos, atividades, datas e horários.
 - **Gerencie links importantes:** Armazene links para reservas, voos, hotéis, restaurantes e outras informações relevantes em um só lugar.
@@ -16,7 +36,7 @@ Com o Plann.er, os usuários encontram uma maneira prática e simples de organiz
 
 ---
 
-## 🌟 Benefícios do Uso da API
+### 🌟 Benefícios do Uso da API
 
 - **Planeje viagens perfeitas:** Organize seus roteiros com antecedência para aproveitar ao máximo o seu tempo e evitar imprevistos.
 - **Centralize informações importantes:** Tenha todas as informações da sua viagem em um só lugar, acessíveis a qualquer momento e em qualquer dispositivo.
@@ -25,7 +45,7 @@ Com o Plann.er, os usuários encontram uma maneira prática e simples de organiz
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+### 🛠️ Tecnologias Utilizadas
 
 | Biblioteca        | Motivação do Uso                                                                 |
 |-------------------|----------------------------------------------------------------------------------|
@@ -41,14 +61,14 @@ Com o Plann.er, os usuários encontram uma maneira prática e simples de organiz
 
 ---
 
-## 🚀 Requisitos para Uso
+### 🚀 Requisitos para Uso
 
 1. NodeJS instalado;
 2. Gerenciador de pacotes instalado (npm, yarn ou pnpm);
 
 ---
 
-## 📦 Como Usar
+### 📦 Como Usar
 
 > Clone o repositório do projeto
 ```bash
@@ -68,7 +88,7 @@ yarn start:dev
 
 ---
 
-## 🏗️ Arquitetura
+### 🏗️ Arquitetura
 
 ### Requisitos Funcionais (RFs)
 
@@ -104,7 +124,7 @@ yarn start:dev
 
 ---
 
-## 🔮 Implementações Futuras
+### 🔮 Implementações Futuras
 
 - [ ] Front-End com Vue.JS
 - [ ] Sistema de autenticação baseado em JWT
@@ -114,7 +134,7 @@ yarn start:dev
 
 ---
 
-## 🔗 Links Úteis
+### 🔗 Links Úteis
 
 - **Repositório do Projeto:** [https://github.com/Dedo-Finger2/nlw-journey-node](https://github.com/Dedo-Finger2/nlw-journey-node)
 - **Meu LinkedIn:** [https://www.linkedin.com/in/antonio-mauricio-4645832b3/](https://www.linkedin.com/in/antonio-mauricio-4645832b3/)
