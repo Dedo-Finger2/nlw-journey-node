@@ -81,13 +81,30 @@ cd nlw-journey-node/
 yarn install
 ```
 
+> Faça o seed do banco de dados
+```bash
+yarn db:seed
+```
+
 > Inicie o servidor de desenvolvimento
 ```bash
 yarn start:dev
 ```
+
 > Execute os testes end-to-end
-```
+```bash
 yarn test:e2e
+```
+
+> Tenha acesso a uma visualização do banco de dados
+```bash
+yarn db:studio
+```
+
+> Crie e execute a build do projeto
+```bash
+yarn build
+yarn start
 ```
 
 ---
