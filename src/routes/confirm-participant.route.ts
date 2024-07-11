@@ -11,6 +11,8 @@ export async function confirmParticipantOnTrip(app: FastifyInstance) {
     "/participants/:participantId/confirm",
     {
       schema: {
+        summary: "Confirms a participant presence in an event.",
+        tags: ["Participants"],
         params: z.object({
           participantId: z.string().uuid()
         }),
@@ -22,14 +24,14 @@ export async function confirmParticipantOnTrip(app: FastifyInstance) {
               error: z.array(z.string()).optional(),
               participantId: z.array(z.string()).optional()
             }),
-            statusCode: z.number().positive().int().default(400)
+            statusCode: z.number().positive().int()
           }),
           500: z.object({
             message: z.string(),
             errors: z.object({
               error: z.array(z.string())
             }),
-            statusCode: z.number().positive().int().default(500)
+            statusCode: z.number().positive().int()
           })
         }
       }
