@@ -28,13 +28,7 @@ export async function updateTrip(app: FastifyInstance) {
           }),
           400: z.object({
             message: z.string(),
-            errors: z.object({
-              error: z.array(z.string()).optional(),
-              tripId: z.array(z.string()).optional(),
-              destination: z.array(z.string()).optional(),
-              starts_at: z.array(z.string()).optional(),
-              ends_at: z.array(z.string()).optional()
-            }),
+            errors: z.record(z.string(), z.array(z.string())).optional(),
             statusCode: z.number().positive().int()
           }),
           404: z.object({

@@ -27,11 +27,7 @@ export async function createInvite(app: FastifyInstance) {
           }),
           400: z.object({
             message: z.string(),
-            errors: z.object({
-              error: z.array(z.string()).optional(),
-              tripId: z.array(z.string()).optional(),
-              email: z.array(z.string()).optional()
-            }),
+            errors: z.record(z.string(), z.array(z.string())).optional(),
             statusCode: z.number().positive().int()
           }),
           404: z.object({

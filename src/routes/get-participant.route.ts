@@ -26,10 +26,7 @@ export async function getTripParticipant(app: FastifyInstance) {
           }),
           400: z.object({
             message: z.string(),
-            errors: z.object({
-              error: z.array(z.string()).optional(),
-              participantId: z.array(z.string()).optional()
-            }),
+            errors: z.record(z.string(), z.array(z.string())).optional(),
             statusCode: z.number().positive().int()
           }),
           404: z.object({
