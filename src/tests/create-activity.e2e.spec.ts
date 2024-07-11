@@ -1,13 +1,14 @@
 import request from "supertest";
 import { app } from "./../config/app";
 import { FastifyInstance } from "fastify";
+import { env } from "../config/env";
 
 let server: FastifyInstance;
 
 describe("Create Activity Route", () => {
   beforeAll(async () => {
     server = app;
-    await server.listen({ port: 3336 });
+    await server.listen({ port: 3335 });
   });
 
   afterAll(async () => {
@@ -16,10 +17,10 @@ describe("Create Activity Route", () => {
 
   it("should be able to create a new activity and return it's id", async () => {
     const response = await request(server.server)
-      .post("/trips/7f02cef7-6c2a-4137-bf66-a00fc5e7fda0/activities")
+      .post(`/trips/${env.TEST_TRIP_ID}/activities`)
       .send({
         title: "Lugar de Teste",
-        occurs_at: "2054-07-15 18:32:00"
+        occurs_at: "5024-01-15 18:32:00"
       });
 
     expect(response.status).toBe(201);
@@ -28,9 +29,9 @@ describe("Create Activity Route", () => {
     });
   });
 
-  it("should return status code 400 when passing occurs_at before trip.starts_at", async () => {
+  it("should not be able to create a new activity when passing occurs_at before trip.starts_at", async () => {
     const response = await request(server.server)
-      .post("/trips/7f02cef7-6c2a-4137-bf66-a00fc5e7fda0/activities")
+      .post(`/trips/${env.TEST_TRIP_ID}/activities`)
       .send({
         title: "Lugar de Teste",
         occurs_at: "1500-07-23 18:32:00"
@@ -44,12 +45,12 @@ describe("Create Activity Route", () => {
     });
   });
 
-  it("should return status code 400 when passing occurs_at after trip.ends_at", async () => {
+  it("should not be able to create a new activity when passing occurs_at after trip.ends_at", async () => {
     const response = await request(server.server)
-      .post("/trips/7f02cef7-6c2a-4137-bf66-a00fc5e7fda0/activities")
+      .post(`/trips/${env.TEST_TRIP_ID}/activities`)
       .send({
         title: "Lugar de Teste",
-        occurs_at: "2024-08-23 18:32:00"
+        occurs_at: "5024-01-30 18:32:00"
       });
 
     expect(response.status).toBe(400);

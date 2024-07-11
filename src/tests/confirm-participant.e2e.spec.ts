@@ -1,24 +1,52 @@
 import request from "supertest";
 import { app } from "../config/app";
 import { FastifyInstance } from "fastify";
+import { env } from "../config/env";
 
 let server: FastifyInstance;
 
-describe("Confirm Participant On Trip", () => {
+describe("Confirm Participant On a Trip", () => {
   beforeAll(async () => {
     server = app;
-    await server.listen({ port: 3335 });
+    await server.listen({ port: 3333 });
   });
 
   afterAll(async () => {
     await server.close();
   });
 
-  it("should be able to create a new trip and return status code of 201", async () => {
+  it("should be able to update participant's is_confirmed property in the trip and redirect the user", async () => {
     const response = await request(server.server).get(
-      "/participants/04dfb121-723e-4300-bf18-48c630736647/confirm"
+      `/participants/${env.TEST_TRIP_PARTICIPANT_ID}/confirm`
     );
 
     expect(response.status).toBe(301);
+    expect(response.body).toEqual({});
+  });
+
+  it("should not be able to confirm a participant that does not exists", async () => {
+    const response = await request(server.server).get(
+      "/participants/80f580b6-297a-4279-90c3-528a87a80dce/confirm"
+    );
+
+    expect(response.status).toBe(404);
+    expect(response.body).toEqual({
+      error: "ResourceNotFoundError",
+      message: "Participant not found.",
+      statusCode: 404
+    });
+  });
+
+  it("should not be able to confirm a participant with invalid uuid", async () => {
+    const response = await request(server.server).get(
+      "/participants/80f580b6-297a279-90c3-528a87a80dce/confirm"
+    );
+
+    expect(response.status).toBe(400);
+    expect(response.body).toEqual({
+      message: "Invalid input.",
+      errors: { participantId: ["Invalid uuid"] },
+      statusCode: 400
+    });
   });
 });

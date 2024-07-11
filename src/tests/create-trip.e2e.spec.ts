@@ -1,13 +1,14 @@
 import request from "supertest";
 import { app } from "./../config/app";
 import { FastifyInstance } from "fastify";
+import { dayjs } from "./../lib/dayjs";
 
 let server: FastifyInstance;
 
 describe("Create Trip Route", () => {
   beforeAll(async () => {
     server = app;
-    await server.listen({ port: 3333 });
+    await server.listen({ port: 3338 });
   });
 
   afterAll(async () => {
@@ -19,8 +20,8 @@ describe("Create Trip Route", () => {
       .post("/trips")
       .send({
         destination: "Lugar de Teste",
-        starts_at: "2054-07-12 18:32:00",
-        ends_at: "2054-08-10 19:32:00",
+        starts_at: dayjs(new Date()).add(1, "days").toDate(),
+        ends_at: dayjs(new Date()).add(10, "days").toDate(),
         owner_name: "Greg",
         owner_email: "antonioimportant@gmail.com",
         emails_to_invite: ["teste@gmail.com", "teste2@gmail.com", "teste3@gmail.com"]
@@ -32,13 +33,13 @@ describe("Create Trip Route", () => {
     });
   });
 
-  it("should return status code 400 when passing invalid starts_at", async () => {
+  it("should not be able to create a new trip when passing invalid starts_at", async () => {
     const response = await request(server.server)
       .post("/trips")
       .send({
         destination: "Lugar de Teste",
-        starts_at: "1500-07-12 18:32:00",
-        ends_at: "2054-08-10 19:32:00",
+        starts_at: dayjs(new Date()).subtract(1, "days").toDate(),
+        ends_at: dayjs(new Date()).add(10, "days").toDate(),
         owner_name: "Greg",
         owner_email: "antonioimportant@gmail.com",
         emails_to_invite: ["teste@gmail.com", "teste2@gmail.com", "teste3@gmail.com"]
@@ -52,13 +53,13 @@ describe("Create Trip Route", () => {
     });
   });
 
-  it("should return status code 400 when passing invalid ends_at", async () => {
+  it("should not be able to create a new trip when passing invalid ends_at", async () => {
     const response = await request(server.server)
       .post("/trips")
       .send({
         destination: "Lugar de Teste",
-        starts_at: "2054-07-12 18:32:00",
-        ends_at: "1500-07-10 19:32:00",
+        starts_at: dayjs(new Date()).add(1, "days").toDate(),
+        ends_at: dayjs(new Date()).subtract(1, "days").toDate(),
         owner_name: "Greg",
         owner_email: "antonioimportant@gmail.com",
         emails_to_invite: ["teste@gmail.com", "teste2@gmail.com", "teste3@gmail.com"]
