@@ -20,22 +20,17 @@ export async function confirmParticipantOnTrip(app: FastifyInstance) {
           301: z.object({}),
           400: z.object({
             message: z.string(),
-            errors: z.object({
-              error: z.array(z.string()).optional(),
-              participantId: z.array(z.string()).optional()
-            }),
+            errors: z.record(z.string(), z.array(z.string())).optional(),
             statusCode: z.number().positive().int()
           }),
           404: z.object({
-            errors: z.array(z.string()).optional(),
             message: z.string(),
+            errors: z.array(z.string()).optional(),
             statusCode: z.number().positive().int()
           }),
           500: z.object({
             message: z.string(),
-            errors: z.object({
-              error: z.array(z.string())
-            }),
+            errors: z.array(z.string()),
             statusCode: z.number().positive().int()
           })
         }

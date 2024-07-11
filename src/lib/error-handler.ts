@@ -1,5 +1,7 @@
 import type { FastifyInstance } from "fastify";
 import { ZodError } from "zod";
+import { ResourceNotFoundError } from "../errors/resource-not-found.error";
+import { InvalidResourceError } from "../errors/invalid-resource.error";
 
 type FastifyErrorHandler = FastifyInstance["errorHandler"];
 
@@ -16,11 +18,17 @@ export const errorHandler: FastifyErrorHandler = (error, request, reply) => {
 
   console.error(error);
 
-  return reply.status(error?.statusCode ?? 500).send({
-    message: error?.message ?? "Internal Server Error.",
-    errors: {
-      error: [`${error?.name ?? "Server Error"}`]
-    },
-    statusCode: error?.statusCode ?? 500
+  if (error instanceof ResourceNotFoundError || error instanceof InvalidResourceError) {
+    return reply.status(error.statusCode).send({
+      message: error.message,
+      errors: [`${error.name ?? undefined}`],
+      statusCode: error.statusCode
+    });
+  }
+
+  return reply.status(500).send({
+    message: "Internal Server Error.",
+    errors: ["Server Error"],
+    statusCode: 500
   });
 };

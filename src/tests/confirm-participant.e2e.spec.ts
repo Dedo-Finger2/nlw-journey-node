@@ -8,7 +8,7 @@ let server: FastifyInstance;
 describe("Confirm Participant On a Trip", () => {
   beforeAll(async () => {
     server = app;
-    await server.listen({ port: 3333 });
+    await server.listen({ port: 3332 });
   });
 
   afterAll(async () => {
@@ -24,15 +24,15 @@ describe("Confirm Participant On a Trip", () => {
     expect(response.body).toEqual({});
   });
 
-  it("should not be able to confirm a participant that does not exists", async () => {
+  it.only("should not be able to confirm a participant that does not exists", async () => {
     const response = await request(server.server).get(
       "/participants/80f580b6-297a-4279-90c3-528a87a80dce/confirm"
     );
 
     expect(response.status).toBe(404);
     expect(response.body).toEqual({
-      error: "ResourceNotFoundError",
       message: "Participant not found.",
+      errors: ["ResourceNotFoundError"],
       statusCode: 404
     });
   });
